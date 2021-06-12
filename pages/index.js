@@ -32,7 +32,7 @@ export default function HomePage({ events }) {
 //   };
 // }
 
-export async function getServerSideProps({ query: { slug } }) {
+export async function getServerSideProps() {
   const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   const events = await res.json();
   return {
