@@ -22,22 +22,22 @@ export default function HomePage({ events }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
-//   const events = await res.json();
-
-//   return {
-//     props: { events },
-//     revalidate: 1,
-//   };
-// }
-
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   const events = await res.json();
+
   return {
-    props: {
-      events,
-    },
+    props: { events },
+    revalidate: 1,
   };
 }
+
+// export async function getServerSideProps() {
+//   const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
+//   const events = await res.json();
+//   return {
+//     props: {
+//       events,
+//     },
+//   };
+// }
